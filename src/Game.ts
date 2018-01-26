@@ -1,5 +1,6 @@
 import {Player} from "./GameObjects/Player";
 import {GameState} from "./GameState";
+import {Maps} from "./Maps/Maps";
 
 export class Game {
 
@@ -20,9 +21,15 @@ export class Game {
 
     public tick(delta: number) {
         // create player if none exists
+
+        if (this.state.map === undefined) {
+            this.state.map = Maps.city;
+        }
+
         if (this.state.player === undefined) {
             this.state.player = new Player();
         }
+
         this.handleEvents();
 
         this.state.player.tick(delta);

@@ -1,5 +1,6 @@
 import {Game} from "./Game";
 import {GameObject} from "./GameObjects/GameObjects";
+import {Map} from "./Maps/Map";
 
 export class GameView {
 
@@ -38,13 +39,28 @@ export class GameView {
         const gameState = this.game.tick(delta);
 
         // render stuff from gameState
-        this.renderObject(delta, gameState.player);
+        this.renderMap(delta, gameState.map);
+        this.renderObject(delta, gameState.map, gameState.player);
 
         this.lastFrame = Date.now();
         window.requestAnimationFrame(() => this.mainLoop());
     }
 
-    public renderObject(delta: number, gameObject: GameObject) {
+    public renderMap(delta: number, map: Map) {
+
+        const x = this.canvas.width / 2 - map.image.width / 2 ;
+        const y = this.canvas.height / 2 - map.image.height / 2 ;
+
+        this.ctx.drawImage(map.image,
+            0, 0, map.image.width, map.image.height,
+            x, y, map.image.width, map.image.height);
+    }
+
+    public renderObject(delta: number, map: Map, gameObject: GameObject) {
+
+        const mapOffsetX = this.canvas.width / 2 - map.image.width / 2 ;
+        const mapOffsetY = this.canvas.height / 2 - map.image.height / 2 ;
+
         if (gameObject.sprite) {
             this.ctx.moveTo(gameObject.posX, gameObject.posY);
 
@@ -54,19 +70,26 @@ export class GameView {
             const frameKey = Math.floor(gameObject.spriteLifetime % gameObject.sprite.frames.length);
             const frame = gameObject.sprite.frames[frameKey];
 
-            // world
-            const scale = 2;
-
             // translate to screen
-            const x = gameObject.posX;
-            const y = gameObject.posY;
-            const sY = frame.sizeX * scale;
-            const sX = frame.sizeY * scale;
+            const x = mapOffsetX + gameObject.posX * map.tileWidthX;
+            const y = mapOffsetY +  gameObject.posY * map.tileWidthY;
+            const sY = gameObject.sprite.gameSizeX * map.tileWidthX;
+            const sX = gameObject.sprite.gameSizeY * map.tileWidthY;
             this.ctx.drawImage(gameObject.sprite.image,
                 frame.posX, frame.posY, frame.sizeX, frame.sizeY,
                 x, y, sX, sY);
+            this.debugText(gameObject.posX.toString(), 5, 20);
         }
 
     }
 
+    public debugText(text: string, x: number, y: number) {
+        this.ctx.save();
+
+        this.ctx.fillStyle = "black";
+        this.ctx.font = "bold 16px Arial";
+        this.ctx.fillText(text, x, y);
+
+        this.ctx.restore();
+    }
 }
