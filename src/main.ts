@@ -1,12 +1,10 @@
-import {GameState} from "./GameState";
 import {Game} from "./Game";
+import {GameState} from "./GameState";
 import {GameView} from "./GameView";
 
-window.onload = function(){
-    console.log('staring');
-    let gameState = new GameState();
-    let game = new Game(gameState);
-    let gameView = new GameView(game);
+window.onload = () => {
+    const gameState = new GameState();
+    const game = new Game(gameState);
+    const gameView = new GameView(game);
     gameView.mainLoop();
-    document.write('hello2')
 };

@@ -1,7 +1,7 @@
-import {Player, Enemy} from "./GameObjects";
+import {Enemy} from "./GameObjects/Enemy";
+import {Player} from "./GameObjects/Player";
 
 export class GameState{
-    player: Player;
-    ingameObjects: [Enemy]
+    public player: Player;
+    public ingameObjects: [Enemy];
 }
-

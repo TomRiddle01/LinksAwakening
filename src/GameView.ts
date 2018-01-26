@@ -1,28 +1,27 @@
 import {Game} from "./Game";
-import {GameObject} from "./GameObjects";
+import {GameObject} from "./GameObjects/GameObjects";
 
 export class GameView {
 
-    canvas : HTMLCanvasElement;
-    ctx : CanvasRenderingContext2D;
-    lastFrame : number;
+    public canvas: HTMLCanvasElement;
+    public ctx: CanvasRenderingContext2D;
+    public lastFrame: number;
 
-    constructor(public game: Game){
-        let CANVAS_WIDTH = 480;
-        let CANVAS_HEIGHT = 320;
+    constructor(public game: Game) {
+        const CANVAS_WIDTH = 480;
+        const CANVAS_HEIGHT = 320;
 
-        this.canvas = <HTMLCanvasElement> document.getElementById("game");
-        console.log(this.canvas);
+        this.canvas = document.getElementById("game") as HTMLCanvasElement;
         this.ctx = this.canvas.getContext("2d");
 
     }
 
-    mainLoop(){
-        let delta = (Date.now() - this.lastFrame)/1000;
+    public mainLoop() {
+        const delta = (Date.now() - this.lastFrame) / 1000;
 
         // reset window
         this.ctx.canvas.width  = window.innerWidth - 20;
-        this.ctx.canvas.height = window.innerHeight -20 ;
+        this.ctx.canvas.height = window.innerHeight - 20 ;
         this.ctx.beginPath();
         this.ctx.rect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.fillStyle = "gray";
@@ -32,20 +31,19 @@ export class GameView {
         this.ctx.fillStyle = "black";
         this.ctx.font = "bold 16px Arial";
 
-        let fps = Math.floor(1/delta);
-        this.ctx.fillText(`${fps} fps`, 5,15);
+        const fps = Math.floor(1 / delta);
+        this.ctx.fillText(`${fps} fps`, 5, 15);
 
-        let gameState = this.game.tick(delta);
+        const gameState = this.game.tick(delta);
 
         // render stuff from gameState
 
-
         this.lastFrame = Date.now();
-        window.requestAnimationFrame(()=>this.mainLoop());
+        window.requestAnimationFrame(() => this.mainLoop());
     }
 
-    renderObject(gameObject:GameObject) {
-        this.ctx.beginPath()
+    public renderObject(gameObject: GameObject) {
+        this.ctx.beginPath();
 
     }
 
