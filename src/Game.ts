@@ -1,5 +1,5 @@
-import {GameState} from "./GameState";
 import {Player} from "./GameObjects/Player";
+import {GameState} from "./GameState";
 
 export class Game {
 
