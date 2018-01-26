@@ -39,19 +39,23 @@ export class GameView {
         const gameState = this.game.tick(delta);
 
         // render stuff from gameState
-        this.ctx.save()
+        this.ctx.save();
 
-        const gScaleX = Math.min(this.canvas.width / gameState.map.image.width,
-            this.canvas.height / gameState.map.image.height) * 0.7;
+        const gScaleX = Math.min(this.canvas.width / gameState.map.map.image.width,
+            this.canvas.height / gameState.map.map.image.height) * 0.7;
         const gScaleY = gScaleX;
 
         // translate to top-left of map
-        const x = this.canvas.width / 2 - gameState.map.image.width * gScaleX / 2 ;
-        const y = this.canvas.height / 2 - gameState.map.image.height * gScaleY / 2 ;
+        const x = this.canvas.width / 2 - gameState.map.map.image.width * gScaleX / 2 ;
+        const y = this.canvas.height / 2 - gameState.map.map.image.height * gScaleY / 2 ;
         this.ctx.translate(x, y);
         this.ctx.transform(gScaleX, 0, 0, gScaleY, 0, 0);
-        this.renderMap(delta, gameState.map);
-        this.renderObject(delta, gameState.map, gameState.player);
+        this.renderMap(delta, gameState.map.map);
+        this.renderObject(delta, gameState.map.map, gameState.player);
+
+        gameState.map.tiles.forEach((tile) => {
+            this.renderObject(delta, gameState.map.map, tile);
+        });
 
         this.ctx.restore();
 
@@ -70,7 +74,6 @@ export class GameView {
     }
 
     public renderObject(delta: number, map: Map, gameObject: GameObject) {
-
 
         if (gameObject.sprite) {
             this.ctx.moveTo(gameObject.posX, gameObject.posY);

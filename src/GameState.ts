@@ -1,9 +1,9 @@
 import {Enemy} from "./GameObjects/Enemy";
 import {Player} from "./GameObjects/Player";
 import {Map} from "./Maps/Map";
+import {MapInstance} from "./GameObjects/MapInstance";
 
 export class GameState {
     public player: Player;
-    public ingameObjects: [Enemy];
-    public map: Map;
+    public map: MapInstance;
 }

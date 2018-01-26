@@ -1,6 +1,7 @@
 import {Player} from "./GameObjects/Player";
 import {GameState} from "./GameState";
 import {Maps} from "./Maps/Maps";
+import {MapInstance} from "./GameObjects/MapInstance";
 
 export class Game {
 
@@ -23,7 +24,7 @@ export class Game {
         // create player if none exists
 
         if (this.state.map === undefined) {
-            this.state.map = Maps.city;
+            this.state.map = new MapInstance(Maps.city);
         }
 
         if (this.state.player === undefined) {
