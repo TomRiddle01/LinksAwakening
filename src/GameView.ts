@@ -3,9 +3,10 @@ import {GameObject} from "./GameObjects/GameObjects";
 
 export class GameView {
 
-    public canvas: HTMLCanvasElement;
-    public ctx: CanvasRenderingContext2D;
-    public lastFrame: number;
+    private canvas: HTMLCanvasElement;
+    private ctx: CanvasRenderingContext2D;
+    private lastFrame: number = Date.now();
+    private frameDurationLimit = 0.5;
 
     constructor(public game: Game) {
         const CANVAS_WIDTH = 480;
@@ -17,7 +18,7 @@ export class GameView {
     }
 
     public mainLoop() {
-        const delta = (Date.now() - this.lastFrame) / 1000;
+        const delta = Math.min((Date.now() - this.lastFrame) / 1000, this.frameDurationLimit);
 
         // reset window
         this.ctx.canvas.width  = window.innerWidth - 20;
@@ -37,13 +38,34 @@ export class GameView {
         const gameState = this.game.tick(delta);
 
         // render stuff from gameState
+        this.renderObject(delta, gameState.player);
 
         this.lastFrame = Date.now();
         window.requestAnimationFrame(() => this.mainLoop());
     }
 
-    public renderObject(gameObject: GameObject) {
-        this.ctx.beginPath();
+    public renderObject(delta: number, gameObject: GameObject) {
+        if (gameObject.sprite) {
+            this.ctx.moveTo(gameObject.posX, gameObject.posY);
+
+            // frame animation
+            const movementSpeed = gameObject.moving ? gameObject.movingSpriteSpeedFactor : 1;
+            gameObject.spriteLifetime += delta * gameObject.sprite.speed * movementSpeed;
+            const frameKey = Math.floor(gameObject.spriteLifetime % gameObject.sprite.frames.length);
+            const frame = gameObject.sprite.frames[frameKey];
+
+            // world
+            const scale = 2;
+
+            // translate to screen
+            const x = gameObject.posX;
+            const y = gameObject.posY;
+            const sY = frame.sizeX * scale;
+            const sX = frame.sizeY * scale;
+            this.ctx.drawImage(gameObject.sprite.image,
+                frame.posX, frame.posY, frame.sizeX, frame.sizeY,
+                x, y, sX, sY);
+        }
 
     }
 
