@@ -40,6 +40,8 @@ export class Sprites {
     ]);
 
 
+    public static placeholder = new Sprite(Sprites.overworld, 1, [new SpriteFrame(307, 103, 16, 16)]);
+    public static invisible = new Sprite(Sprites.overworld, 1, [new SpriteFrame(222, 222, 16, 16)]);
     public static bush = new Sprite(Sprites.overworld, 1, [new SpriteFrame(222, 171, 16, 16)]);
 
     private static image(imagePath: string): HTMLImageElement {

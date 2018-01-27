@@ -7,4 +7,5 @@ export class Tile extends GameObject {
         this.moving = false;
         this.movingSpriteSpeedFactor = 0;
     }
+
 }

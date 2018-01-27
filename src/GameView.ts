@@ -1,11 +1,14 @@
 import {Game} from "./Game";
 import {GameObject} from "./GameObjects/GameObjects";
 import {Map} from "./Maps/Map";
+import {Sprites} from "./Sprites/Sprites";
 
 export class GameView {
 
     private canvas: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D;
+    private bgcanvas: HTMLCanvasElement;
+    private bgctx: CanvasRenderingContext2D;
     private lastFrame: number = Date.now();
     private frameDurationLimit = 0.5;
 
@@ -13,21 +16,25 @@ export class GameView {
         const CANVAS_WIDTH = 480;
         const CANVAS_HEIGHT = 320;
 
-        this.canvas = document.getElementById("game") as HTMLCanvasElement;
+        this.canvas = document.getElementById("game2") as HTMLCanvasElement;
+        this.bgcanvas = document.getElementById("game1") as HTMLCanvasElement;
         this.ctx = this.canvas.getContext("2d");
+        this.bgctx = this.canvas.getContext("2d");
+
+        this.bgctx.canvas.width  = window.innerWidth - 20;
+        this.bgctx.canvas.height = window.innerHeight - 20 ;
+        this.ctx.canvas.width  = window.innerWidth - 20;
+        this.ctx.canvas.height = window.innerHeight - 20 ;
+
+        this.bgctx.rect(0, 0, this.bgcanvas.width, this.bgcanvas.height);
     }
 
     public mainLoop() {
         const delta = Math.min((Date.now() - this.lastFrame) / 1000, this.frameDurationLimit);
 
         // reset window
-        this.ctx.canvas.width  = window.innerWidth - 20;
-        this.ctx.canvas.height = window.innerHeight - 20 ;
-        this.ctx.beginPath();
-        this.ctx.rect(0, 0, this.canvas.width, this.canvas.height);
-        this.ctx.fillStyle = "gray";
-        this.ctx.fill();
 
+        this.bgctx.clearRect(0,0, this.bgcanvas.width, this.bgcanvas.height);
         // debug infos
         this.ctx.fillStyle = "black";
         this.ctx.font = "bold 16px Arial";
@@ -74,7 +81,7 @@ export class GameView {
 
     public renderObject(delta: number, map: Map, gameObject: GameObject) {
 
-        if (gameObject.sprite) {
+        if (gameObject.sprite || gameObject.sprite !== Sprites.invisible) {
             this.ctx.moveTo(gameObject.posX, gameObject.posY);
 
             // frame animation

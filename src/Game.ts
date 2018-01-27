@@ -39,7 +39,7 @@ export class Game {
         this.handleEvents();
 
         // ticks
-        this.state.player.tick(delta);
+        this.state.player.tick(delta, this.state);
 
         // collision detection
         this.handleCollisions(this.state.player, this.state.map.tiles);
@@ -52,7 +52,8 @@ export class Game {
 
         objects.forEach((object) => {
 
-            if (player.posX + player.gameSizeX > object.posX &&
+            if (object.playerCollision &&
+                player.posX + player.gameSizeX > object.posX &&
                 player.posX < object.posX + object.gameSizeX &&
                 player.posY + player.gameSizeY > object.posY &&
                 player.posY < object.posY + object.gameSizeY) {
@@ -93,6 +94,8 @@ export class Game {
                     case 40: { this.state.player.buttonDown = e.type === "keydown"; break; }
                     case 37: { this.state.player.buttonLeft = e.type === "keydown"; break; }
                     case 39: { this.state.player.buttonRight = e.type === "keydown"; break; }
+                    case 32: { this.state.player.space = e.type === "keydown"; break; }
+                    case 80: { this.state.player.buttonP = e.type === "keydown"; break; }
                 }
             }
         }
