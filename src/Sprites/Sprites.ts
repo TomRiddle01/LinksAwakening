@@ -5,6 +5,7 @@ export class Sprites {
 
     public static greenLink = Sprites.image("img/sprites/green_link.png");
     public static overworld = Sprites.image("img/sprites/overworld.png");
+    public static leavesMap = Sprites.image("img/sprites/leaves.png");
 
     public static linkLeft = new Sprite(Sprites.greenLink, 3, [
         new SpriteFrame(0, 0, 15, 16),
@@ -63,6 +64,16 @@ export class Sprites {
     public static placeholder = new Sprite(Sprites.overworld, 1, [new SpriteFrame(307, 103, 16, 16)]);
     public static invisible = new Sprite(Sprites.overworld, 1, [new SpriteFrame(223, 222, 16, 16)]);
     public static grass = new Sprite(Sprites.overworld, 1, [new SpriteFrame(222, 171, 16, 16)]);
+
+    public static leaves = new Sprite(Sprites.leavesMap, 12, [
+        new SpriteFrame(0, 0,   32, 32, -0.5, -0.5, 2, 2),
+        new SpriteFrame(32, 0,  32, 32, -0.5, -0.5, 2, 2),
+        new SpriteFrame(64, 0,  32, 32, -0.5, -0.5, 2, 2),
+        new SpriteFrame(96, 0,  32, 32, -0.5, -0.5, 2, 2),
+        new SpriteFrame(128, 0,  32, 32, -0.5, -0.5, 2, 2),
+        new SpriteFrame(160, 0,  32, 32, -0.5, -0.5, 2, 2),
+        new SpriteFrame(192, 0,  32, 32, -0.5, -0.5, 2, 2),
+    ], false);
 
     private static image(imagePath: string): HTMLCanvasElement {
         const tmpCanvas = document.createElement("canvas");

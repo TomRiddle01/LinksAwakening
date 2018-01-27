@@ -11,9 +11,9 @@ export class Grass extends StaticTile {
 
     public collisionWith(object: GameObject) {
         if (object instanceof DamageHitBox) {
-           this.disappearsAfter = 0.2;
-           this.playerCollision = false;
+            this.setSprite(Sprites.leaves);
+            this.die(this.sprite.getDuration());
+            this.playerCollision = false;
         }
-        return;
     }
 }

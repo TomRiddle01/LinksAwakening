@@ -64,7 +64,7 @@ export class Player extends GameObject {
             this.attacking = new AttackAnimation(this);
             this.attacking.restart();
 
-            box.disappearsAfter = this.attacking.sprite.getDuration();
+            box.die(this.attacking.sprite.getDuration());
             gameState.map.dynamicObjects.push(box);
 
         }

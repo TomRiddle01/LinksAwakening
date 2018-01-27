@@ -59,4 +59,7 @@ export class GameObject {
 
         return;
     }
+    public die(seconds: number) {
+        this.disappearsAfter = this.lifetime + seconds;
+    }
 }
