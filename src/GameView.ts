@@ -22,7 +22,6 @@ export class GameView {
         this.ctx = this.canvas.getContext("2d");
         this.bgctx = this.bgcanvas.getContext("2d");
 
-
     }
 
     public mainLoop() {
@@ -89,7 +88,6 @@ export class GameView {
     public renderObject(delta: number, map: Map, gameObject: GameObject) {
 
         if (gameObject.sprite && gameObject.visible) {
-            //this.ctx.moveTo(gameObject.posX, gameObject.posY);
 
             // frame animation
             const movementSpeed = gameObject.moving ? gameObject.movingSpriteSpeedFactor : 1;

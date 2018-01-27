@@ -19,10 +19,10 @@ export class GameObject {
         }
     }
 
-    public tileX(){
+    public tileX() {
         return Math.floor(this.posX);
     }
-    public tileY(){
+    public tileY() {
         return Math.floor(this.posY);
     }
 

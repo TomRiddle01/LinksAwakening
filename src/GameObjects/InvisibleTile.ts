@@ -1,6 +1,6 @@
 import {Sprite} from "../Sprites/Sprite";
-import {GameObject} from "./GameObjects";
 import {Sprites} from "../Sprites/Sprites";
+import {GameObject} from "./GameObjects";
 
 export class InvisibleTile extends GameObject {
 

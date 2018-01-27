@@ -1,9 +1,9 @@
+import {InvisibleTile} from "../GameObjects/InvisibleTile";
 import {StaticTile} from "../GameObjects/StaticTile";
 import {Tile} from "../GameObjects/Tile";
 import {Sprite} from "../Sprites/Sprite";
 import {Sprites} from "../Sprites/Sprites";
 import {Map} from "./Map";
-import {InvisibleTile} from "../GameObjects/InvisibleTile";
 
 export class Maps {
 
