@@ -13,13 +13,45 @@ export class Maps {
     public static cocolinth = new Map(Maps.imgCocolinth, 16, 16, 160, 128, []);
 
     public static city = new Map(Maps.imgCity, 16, 16, 32, 22, [
+
         () => new StaticTile(Sprites.bush, 23, 8),
         () => new StaticTile(Sprites.bush, 23, 9),
         () => new StaticTile(Sprites.bush, 23, 10),
         () => new StaticTile(Sprites.bush, 23, 11),
         () => new StaticTile(Sprites.bush, 23, 12),
 
+        () => new StaticTile(Sprites.bush, 24, 8),
+        () => new StaticTile(Sprites.bush, 24, 9),
+        () => new StaticTile(Sprites.bush, 24, 10),
+        () => new StaticTile(Sprites.bush, 24, 11),
+        () => new StaticTile(Sprites.bush, 24, 12),
+
+        () => new StaticTile(Sprites.bush, 25, 8),
+        () => new StaticTile(Sprites.bush, 25, 9),
+        () => new StaticTile(Sprites.bush, 25, 10),
+        () => new StaticTile(Sprites.bush, 25, 11),
+        () => new StaticTile(Sprites.bush, 25, 12),
+
+        () => new StaticTile(Sprites.bush, 26, 8),
+        () => new StaticTile(Sprites.bush, 26, 9),
+        () => new StaticTile(Sprites.bush, 26, 10),
+        () => new StaticTile(Sprites.bush, 26, 11),
+        () => new StaticTile(Sprites.bush, 26, 12),
+
+        () => new StaticTile(Sprites.bush, 27, 8),
+        () => new StaticTile(Sprites.bush, 27, 9),
+        () => new StaticTile(Sprites.bush, 27, 10),
+        () => new StaticTile(Sprites.bush, 27, 11),
+        () => new StaticTile(Sprites.bush, 27, 12),
+
+        () => new StaticTile(Sprites.bush, 28, 8),
+        () => new StaticTile(Sprites.bush, 28, 9),
+        () => new StaticTile(Sprites.bush, 28, 10),
+        () => new StaticTile(Sprites.bush, 28, 11),
+        () => new StaticTile(Sprites.bush, 28, 12),
+
         () => new InvisibleTile(0, 6   ),
+        () => new InvisibleTile(5, 10   ),
         () => new InvisibleTile(0, 5   ),
         () => new InvisibleTile(0, 4   ),
         () => new InvisibleTile(0, 3   ),
@@ -270,6 +302,7 @@ export class Maps {
         () => new InvisibleTile(15, 10 ),
         () => new InvisibleTile(15, 9  ),
         () => new InvisibleTile(16, 9  ),
+        () => new InvisibleTile(7, 9  ),
     ]);
 
     private static image(imagePath: string): HTMLImageElement {
