@@ -12,9 +12,11 @@ export class Maps {
     public static cocolinth = new Map(Maps.imgCocolinth, 16, 16, 160, 128, []);
 
     public static city = new Map(Maps.imgCity, 16, 16, 32, 22, [
-        () => new StaticTile(Sprites.bush, 10, 10),
-        () => new StaticTile(Sprites.bush, 10, 11),
-        () => new StaticTile(Sprites.bush, 11, 11),
+        () => new StaticTile(Sprites.bush, 23, 8),
+        () => new StaticTile(Sprites.bush, 23, 9),
+        () => new StaticTile(Sprites.bush, 23, 10),
+        () => new StaticTile(Sprites.bush, 23, 11),
+        () => new StaticTile(Sprites.bush, 23, 12),
     ]);
 
     private static image(imagePath: string): HTMLImageElement {

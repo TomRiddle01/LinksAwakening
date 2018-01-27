@@ -8,6 +8,8 @@ export class GameObject {
     public moving = false;
     public movingSpriteSpeedFactor = 2;
     public speed = 5;
+    public gameSizeX = 1;
+    public gameSizeY = 1;
 
     public setSprite(sprite: Sprite) {
         if (this.sprite !== sprite) {

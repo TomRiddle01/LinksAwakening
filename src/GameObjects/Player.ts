@@ -8,6 +8,7 @@ export class Player extends GameObject {
     public buttonLeft = false;
     public buttonRight = false;
     public direction = Direction.DOWN;
+    public pushing = false;
 
     public tick(delta: number) {
         this.moving = false;
@@ -36,11 +37,21 @@ export class Player extends GameObject {
             this.moving = true;
         }
 
-        switch (this.direction) {
-            case Direction.LEFT: this.setSprite(Sprites.linkLeft); break;
-            case Direction.RIGHT: this.setSprite(Sprites.linkRight); break;
-            case Direction.UP: this.setSprite(Sprites.linkUp); break;
-            case Direction.DOWN: this.setSprite(Sprites.linkDown); break;
+        if (this.pushing) {
+            switch (this.direction) {
+                case Direction.LEFT: this.setSprite(Sprites.linkPushingLeft); break;
+                case Direction.RIGHT: this.setSprite(Sprites.linkPushingRight); break;
+                case Direction.UP: this.setSprite(Sprites.linkPushingUp); break;
+                case Direction.DOWN: this.setSprite(Sprites.linkPushingDown); break;
+            }
+        } else {
+            switch (this.direction) {
+                case Direction.LEFT: this.setSprite(Sprites.linkLeft); break;
+                case Direction.RIGHT: this.setSprite(Sprites.linkRight); break;
+                case Direction.UP: this.setSprite(Sprites.linkUp); break;
+                case Direction.DOWN: this.setSprite(Sprites.linkDown); break;
+            }
         }
+
     }
 }

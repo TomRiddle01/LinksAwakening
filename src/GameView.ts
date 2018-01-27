@@ -15,7 +15,6 @@ export class GameView {
 
         this.canvas = document.getElementById("game") as HTMLCanvasElement;
         this.ctx = this.canvas.getContext("2d");
-
     }
 
     public mainLoop() {
@@ -42,7 +41,7 @@ export class GameView {
         this.ctx.save();
 
         const gScaleX = Math.min(this.canvas.width / gameState.map.map.image.width,
-            this.canvas.height / gameState.map.map.image.height) * 0.7;
+            this.canvas.height / gameState.map.map.image.height) * 0.5;
         const gScaleY = gScaleX;
 
         // translate to top-left of map
@@ -87,8 +86,8 @@ export class GameView {
             // translate to screen
             const x = gameObject.posX * map.tileWidthX;
             const y = gameObject.posY * map.tileWidthY;
-            const sY = gameObject.sprite.gameSizeX * map.tileWidthX;
-            const sX = gameObject.sprite.gameSizeY * map.tileWidthY;
+            const sY = gameObject.gameSizeX * map.tileWidthX;
+            const sX = gameObject.gameSizeY * map.tileWidthY;
             this.ctx.drawImage(gameObject.sprite.image,
                 frame.posX, frame.posY, frame.sizeX, frame.sizeY,
                 x, y, sX, sY);
