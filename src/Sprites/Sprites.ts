@@ -39,9 +39,30 @@ export class Sprites {
         new SpriteFrame(132, 21, 15, 16),
     ]);
 
+    public static linkSwordAttackLeft = new Sprite(Sprites.greenLink, 18, [
+        new SpriteFrame(191, 100, 16, 32, 0, -1, 1, 2),
+        new SpriteFrame(155, 100, 32, 32, -1, -1,  2, 2),
+        new SpriteFrame(125, 116, 32, 16, -1, 0,  2, 1),
+    ], false);
+    public static linkSwordAttackUp = new Sprite(Sprites.greenLink, 18, [
+        new SpriteFrame(177, 139, 32, 32, 0, -1, 2, 2),
+        new SpriteFrame(146, 139, 32, 32, 0, -1,  2, 2),
+        new SpriteFrame(124, 139, 16, 32, 0, -1,  1, 2),
+    ], false);
+    public static linkSwordAttackDown = new Sprite(Sprites.greenLink, 18, [
+        new SpriteFrame(26, 139, 32, 16, -1, 0,  2, 1),
+        new SpriteFrame(64, 139, 32, 32, -1, 0,  2, 2),
+        new SpriteFrame(97, 139, 16, 32, 0, 0, 1, 2),
+    ], false);
+    public static linkSwordAttackRight = new Sprite(Sprites.greenLink, 18, [
+        new SpriteFrame(36, 100, 16, 32, 0, -1,  1, 2),
+        new SpriteFrame(57, 100, 32, 32, 0, -1,  2, 2),
+        new SpriteFrame(88, 116,  32, 16, 0,  0,  2, 1),
+    ], false);
+
     public static placeholder = new Sprite(Sprites.overworld, 1, [new SpriteFrame(307, 103, 16, 16)]);
     public static invisible = new Sprite(Sprites.overworld, 1, [new SpriteFrame(223, 222, 16, 16)]);
-    public static bush = new Sprite(Sprites.overworld, 1, [new SpriteFrame(222, 171, 16, 16)]);
+    public static grass = new Sprite(Sprites.overworld, 1, [new SpriteFrame(222, 171, 16, 16)]);
 
     private static image(imagePath: string): HTMLCanvasElement {
         const tmpCanvas = document.createElement("canvas");
@@ -56,10 +77,5 @@ export class Sprites {
         img.src = imagePath;
         return tmpCanvas;
     }
-    //private static image(imagePath: string): HTMLImageElement {
-    //    const image = new Image();
-    //    image.src = imagePath;
-    //    return image;
-    //}
 
 }

@@ -1,3 +1,4 @@
+import {Grass} from "../GameObjects/Grass";
 import {InvisibleTile} from "../GameObjects/InvisibleTile";
 import {StaticTile} from "../GameObjects/StaticTile";
 import {Tile} from "../GameObjects/Tile";
@@ -14,41 +15,41 @@ export class Maps {
 
     public static city = new Map(Maps.imgCity, 16, 16, 32, 22, [
 
-        () => new StaticTile(Sprites.bush, 23, 8),
-        () => new StaticTile(Sprites.bush, 23, 9),
-        () => new StaticTile(Sprites.bush, 23, 10),
-        () => new StaticTile(Sprites.bush, 23, 11),
-        () => new StaticTile(Sprites.bush, 23, 12),
+        () => new Grass(23, 8),
+        () => new Grass(23, 9),
+        () => new Grass(23, 10),
+        () => new Grass(23, 11),
+        () => new Grass(23, 12),
 
-        () => new StaticTile(Sprites.bush, 24, 8),
-        () => new StaticTile(Sprites.bush, 24, 9),
-        () => new StaticTile(Sprites.bush, 24, 10),
-        () => new StaticTile(Sprites.bush, 24, 11),
-        () => new StaticTile(Sprites.bush, 24, 12),
+        () => new Grass(24, 8),
+        () => new Grass(24, 9),
+        () => new Grass(24, 10),
+        () => new Grass(24, 11),
+        () => new Grass(24, 12),
 
-        () => new StaticTile(Sprites.bush, 25, 8),
-        () => new StaticTile(Sprites.bush, 25, 9),
-        () => new StaticTile(Sprites.bush, 25, 10),
-        () => new StaticTile(Sprites.bush, 25, 11),
-        () => new StaticTile(Sprites.bush, 25, 12),
+        () => new Grass(25, 8),
+        () => new Grass(25, 9),
+        () => new Grass(25, 10),
+        () => new Grass(25, 11),
+        () => new Grass(25, 12),
 
-        () => new StaticTile(Sprites.bush, 26, 8),
-        () => new StaticTile(Sprites.bush, 26, 9),
-        () => new StaticTile(Sprites.bush, 26, 10),
-        () => new StaticTile(Sprites.bush, 26, 11),
-        () => new StaticTile(Sprites.bush, 26, 12),
+        () => new Grass(26, 8),
+        () => new Grass(26, 9),
+        () => new Grass(26, 10),
+        () => new Grass(26, 11),
+        () => new Grass(26, 12),
 
-        () => new StaticTile(Sprites.bush, 27, 8),
-        () => new StaticTile(Sprites.bush, 27, 9),
-        () => new StaticTile(Sprites.bush, 27, 10),
-        () => new StaticTile(Sprites.bush, 27, 11),
-        () => new StaticTile(Sprites.bush, 27, 12),
+        () => new Grass(27, 8),
+        () => new Grass(27, 9),
+        () => new Grass(27, 10),
+        () => new Grass(27, 11),
+        () => new Grass(27, 12),
 
-        () => new StaticTile(Sprites.bush, 28, 8),
-        () => new StaticTile(Sprites.bush, 28, 9),
-        () => new StaticTile(Sprites.bush, 28, 10),
-        () => new StaticTile(Sprites.bush, 28, 11),
-        () => new StaticTile(Sprites.bush, 28, 12),
+        () => new Grass(28, 8),
+        () => new Grass(28, 9),
+        () => new Grass(28, 10),
+        () => new Grass(28, 11),
+        () => new Grass(28, 12),
 
         () => new InvisibleTile(0, 6   ),
         () => new InvisibleTile(5, 10   ),

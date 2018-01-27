@@ -41,22 +41,40 @@ export class Game {
         // ticks
         this.state.player.tick(delta, this.state);
 
+        this.state.map.staticTiles.forEach((tile) => {
+            tile.tick(delta, this.state);
+        });
+        this.state.map.staticTiles = this.state.map.staticTiles.filter((tile) => !tile.isTileDead());
+
+        this.state.map.dynamicObjects.forEach((tile) => {
+            tile.tick(delta, this.state);
+        });
+        this.state.map.dynamicObjects = this.state.map.dynamicObjects.filter((tile) => !tile.isTileDead());
+
         // collision detection
-        this.handleCollisions(this.state.player, this.state.map.tiles);
+        this.handlePlayerCollisions(this.state.player, this.state.map.staticTiles);
+        this.handleCollisions(this.state.map.dynamicObjects, this.state.map.staticTiles);
 
         return this.state;
     }
 
-    public handleCollisions(player: Player, objects: GameObject[]) {
-        player.pushing = false;
+    public handleCollisions(objects: GameObject[], objects2: GameObject[]) {
+        objects.forEach((object) => {
+            objects2.forEach((object2) => {
+                if (this.collide(object, object2)) {
+                    object.collisionWith(object2);
+                    object2.collisionWith(object);
+                }
+            });
+        });
 
+    }
+
+    public handlePlayerCollisions(player: Player, objects: GameObject[]) {
+        player.pushing = false;
         objects.forEach((object) => {
 
-            if (object.playerCollision &&
-                player.posX + player.gameSizeX > object.posX &&
-                player.posX < object.posX + object.gameSizeX &&
-                player.posY + player.gameSizeY > object.posY &&
-                player.posY < object.posY + object.gameSizeY) {
+            if (object.playerCollision && this.collide(player, object)) {
 
                 const distX1 = object.posX - (player.posX + player.gameSizeX);
                 const distX2 = (object.posX + object.gameSizeX) - player.posX;
@@ -66,22 +84,15 @@ export class Game {
                 const minX = Math.min(Math.abs(distX1), Math.abs(distX2));
                 const minY = Math.min(Math.abs(distY1), Math.abs(distY2));
                 if (minX < minY) {
-                    if (Math.abs(distX1) < Math.abs(distX2)) {
-                        player.posX += distX1;
-                    } else {
-                        player.posX += distX2;
-                    }
+                    player.posX += Math.abs(distX1) < Math.abs(distX2) ? distX1 : distX2;
                 } else {
-                    if (Math.abs(distY1) < Math.abs(distY2)) {
-                        player.posY += distY1;
-                    } else {
-                        player.posY += distY2;
-                    }
+                    player.posY += Math.abs(distY1) < Math.abs(distY2) ? distY1 : distY2;
                 }
 
                 player.pushing = true;
             }
         });
+
     }
 
     public handleEvents() {
@@ -95,9 +106,20 @@ export class Game {
                     case 37: { this.state.player.buttonLeft = e.type === "keydown"; break; }
                     case 39: { this.state.player.buttonRight = e.type === "keydown"; break; }
                     case 32: { this.state.player.space = e.type === "keydown"; break; }
+                    case 79: { this.state.player.buttonO = e.type === "keydown"; break; }
                     case 80: { this.state.player.buttonP = e.type === "keydown"; break; }
                 }
             }
         }
+    }
+
+    private collide(object: GameObject, object2: GameObject): boolean {
+
+        if (object.posX + object.gameSizeX > object2.posX &&
+            object.posX < object2.posX + object2.gameSizeX &&
+            object.posY + object.gameSizeY > object2.posY &&
+            object.posY < object2.posY + object2.gameSizeY) {
+            return true;
+        } else { return false; }
     }
 }

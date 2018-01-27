@@ -61,11 +61,15 @@ export class GameView {
         this.ctx.translate(x, y);
         this.ctx.transform(gScaleX, 0, 0, gScaleY, 0, 0);
         this.renderMap(delta, gameState.map.map);
-        this.renderObject(delta, gameState.map.map, gameState.player);
 
-        gameState.map.tiles.forEach((tile) => {
+        gameState.map.staticTiles.forEach((tile) => {
             this.renderObject(delta, gameState.map.map, tile);
         });
+        gameState.map.dynamicObjects.forEach((tile) => {
+            this.renderObject(delta, gameState.map.map, tile);
+        });
+
+        this.renderObject(delta, gameState.map.map, gameState.player);
 
         this.ctx.restore();
         this.bgctx.restore();
@@ -90,16 +94,20 @@ export class GameView {
         if (gameObject.sprite && gameObject.visible) {
 
             // frame animation
-            const movementSpeed = gameObject.moving ? gameObject.movingSpriteSpeedFactor : 1;
-            gameObject.spriteLifetime += delta * gameObject.sprite.speed * movementSpeed;
-            const frameKey = Math.floor(gameObject.spriteLifetime % gameObject.sprite.frames.length);
+            gameObject.spriteLifetime += delta * gameObject.sprite.speed;
+            let frameKey = 0;
+            if (gameObject.sprite.loop) {
+                frameKey = Math.floor(gameObject.spriteLifetime % gameObject.sprite.frames.length);
+            } else {
+                frameKey = Math.min(Math.floor(gameObject.spriteLifetime), gameObject.sprite.frames.length - 1);
+            }
             const frame = gameObject.sprite.frames[frameKey];
 
             // translate to screen
-            const x = gameObject.posX * map.tileWidthX;
-            const y = gameObject.posY * map.tileWidthY;
-            const sY = gameObject.gameSizeX * map.tileWidthX;
-            const sX = gameObject.gameSizeY * map.tileWidthY;
+            const x = (gameObject.posX + frame.gameOffsetX) * map.tileWidthX;
+            const y = (gameObject.posY + frame.gameOffsetY) * map.tileWidthY;
+            const sX = frame.gameSizeX * map.tileWidthX;
+            const sY = frame.gameSizeY * map.tileWidthY;
             this.ctx.drawImage(gameObject.sprite.image,
                 Math.floor(frame.posX), Math.floor(frame.posY), Math.floor(frame.sizeX), Math.floor(frame.sizeY),
                 Math.floor(x), Math.floor(y), Math.floor(sX), Math.floor(sY));

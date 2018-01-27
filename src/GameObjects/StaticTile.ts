@@ -1,4 +1,5 @@
 import {Sprite} from "../Sprites/Sprite";
+import {DamageHitBox} from "./DamageHitBox";
 import {GameObject} from "./GameObjects";
 
 export class StaticTile extends GameObject {
@@ -10,4 +11,5 @@ export class StaticTile extends GameObject {
         this.playerCollision = true;
         this.setSprite(sprite);
     }
+
 }
