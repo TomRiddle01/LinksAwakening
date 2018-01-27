@@ -84,6 +84,7 @@ export class GameView {
         const x = 0 ;
         const y = 0;
 
+        this.bgctx.fillRect(-10, -10, map.image.width + 20, map.image.height + 20);
         this.bgctx.drawImage(map.image,
             0, 0, map.image.width, map.image.height,
             x, y, map.image.width, map.image.height);
