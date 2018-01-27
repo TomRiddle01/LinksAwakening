@@ -70,3 +70,4 @@ typings/
 !webpack.config.js
 .idea
 
+deploy.sh

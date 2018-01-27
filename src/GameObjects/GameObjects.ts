@@ -11,6 +11,7 @@ export class GameObject {
     public gameSizeX = 1;
     public gameSizeY = 1;
     public playerCollision = false;
+    public visible: boolean = true;
 
     public setSprite(sprite: Sprite) {
         if (this.sprite !== sprite) {
