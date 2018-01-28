@@ -75,7 +75,7 @@ export class Sprites {
 
     public static placeholder = new Sprite(Sprites.overworld, 1, [new SpriteFrame(307, 103, 16, 16)]);
     public static invisible = new Sprite(Sprites.overworld, 1, [new SpriteFrame(223, 222, 16, 16)]);
-    public static grass = new Sprite(Sprites.overworld, 1, [new SpriteFrame(222, 171, 16, 16)]);
+    public static grass = new Sprite(Sprites.overworld, 1, [new SpriteFrame(223, 171, 16, 16)]);
 
     public static leaves = new Sprite(Sprites.leavesMap, 12, [
         new SpriteFrame(0, 0,   32, 32, -0.5, -0.5, 2, 2),
