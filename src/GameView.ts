@@ -68,6 +68,9 @@ export class GameView {
         gameState.map.dynamicObjects.forEach((tile) => {
             this.renderObject(delta, gameState.map.map, tile);
         });
+        gameState.map.enemies.forEach((enemy) => {
+            this.renderObject(delta, gameState.map.map, enemy);
+        });
 
         this.renderObject(delta, gameState.map.map, gameState.player);
 

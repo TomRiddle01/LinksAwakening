@@ -1,3 +1,5 @@
+import {Cucco} from "../GameObjects/Enemies/Cucco";
+import {Enemy} from "../GameObjects/Enemies/Enemy";
 import {Grass} from "../GameObjects/Tiles/Grass";
 import {InvisibleTile} from "../GameObjects/Tiles/InvisibleTile";
 import {StaticTile} from "../GameObjects/Tiles/StaticTile";
@@ -304,7 +306,11 @@ export class Maps {
         () => new InvisibleTile(15, 9  ),
         () => new InvisibleTile(16, 9  ),
         () => new InvisibleTile(7, 9  ),
-    ]);
+    ], [
+        () => new Cucco(25, 7),
+        () => new Cucco(19, 17),
+        () => new Cucco(10, 10),
+        ]);
 
     private static image(imagePath: string): HTMLImageElement {
         const image = new Image();

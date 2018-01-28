@@ -1,10 +1,10 @@
 import {GameState} from "../../GameState";
 import {Sprites} from "../../Sprites/Sprites";
-import {AttackAnimation} from "./AttackAnimation";
+import {GameObject} from "../GameObjects";
 import {DamageHitBox} from "../Misc/DamageHitBox";
 import {Direction} from "../Misc/Direction";
 import {EditorTile} from "../Tiles/EditorTile";
-import {GameObject} from "../GameObjects";
+import {AttackAnimation} from "./AttackAnimation";
 
 export class Player extends GameObject {
     public buttonUp = false;
@@ -13,7 +13,6 @@ export class Player extends GameObject {
     public buttonRight = false;
     public space = false;
     public direction = Direction.DOWN;
-    public pushing = false;
     public buttonP: boolean;
     public buttonO: boolean;
     public attacking: AttackAnimation;

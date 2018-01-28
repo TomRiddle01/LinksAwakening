@@ -8,7 +8,7 @@ export class EditorTile extends GameObject {
         super();
         this.posX = posX;
         this.posY = posY;
-        this.playerCollision = false;
+        this.npcCollision = false;
         this.setSprite(sprite);
     }
 }

@@ -5,4 +5,5 @@ export class SpriteFrame {
                 public gameSizeX: number = 1, public gameSizeY: number = 1) {
 
     }
+
 }

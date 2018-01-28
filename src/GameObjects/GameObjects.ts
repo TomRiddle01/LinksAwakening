@@ -13,13 +13,17 @@ export class GameObject {
     public speed = 5;
     public gameSizeX = 1;
     public gameSizeY = 1;
-    public playerCollision = false;
+    public npcCollision = false;
     public visible: boolean = true;
 
     public disappearsAfter: number;
     public lifetime = 0;
 
+    public pushing = false;
+
     public setSprite(sprite: Sprite) {
+        // you need to set previousSprite by yourself at the end of
+        // your tick for this to work as expected
         if (this.previousSprite !== sprite) {
             this.sprite = sprite;
             this.spriteLifetime = 0;

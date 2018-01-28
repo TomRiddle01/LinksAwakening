@@ -6,6 +6,7 @@ export class Sprites {
     public static greenLink = Sprites.image("img/sprites/green_link.png");
     public static overworld = Sprites.image("img/sprites/overworld.png");
     public static leavesMap = Sprites.image("img/sprites/leaves.png");
+    public static npcs = Sprites.image("img/sprites/npcs.png");
 
     public static linkLeft = new Sprite(Sprites.greenLink, 3, [
         new SpriteFrame(0, 0, 15, 16),
@@ -72,6 +73,15 @@ export class Sprites {
         new SpriteFrame(57, 100, 32, 32, 0, -1,  2, 2),
         new SpriteFrame(88, 116,  32, 16, 0,  0,  2, 1),
     ], false);
+
+    public static cuccoLeft = new Sprite(Sprites.npcs, 3, [
+        new SpriteFrame(579, 46, 16, 16),
+        new SpriteFrame(594, 46, 16, 16),
+    ]);
+    public static cuccoRight = new Sprite(Sprites.npcs, 3, [
+        new SpriteFrame(561, 46, 16, 16),
+        new SpriteFrame(543, 46, 16, 16),
+    ]);
 
     public static placeholder = new Sprite(Sprites.overworld, 1, [new SpriteFrame(307, 103, 16, 16)]);
     public static invisible = new Sprite(Sprites.overworld, 1, [new SpriteFrame(223, 222, 16, 16)]);

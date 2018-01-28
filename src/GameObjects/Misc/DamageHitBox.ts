@@ -8,7 +8,7 @@ export class DamageHitBox extends GameObject {
         super();
         this.posX = posX;
         this.posY = posY;
-        this.playerCollision = false;
+        this.npcCollision = false;
         this.visible = false;
         this.setSprite(Sprites.invisible);
     }

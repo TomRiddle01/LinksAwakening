@@ -8,7 +8,7 @@ export class InvisibleTile extends GameObject {
         super();
         this.posX = posX;
         this.posY = posY;
-        this.playerCollision = true;
+        this.npcCollision = true;
         this.visible = false;
         this.setSprite(Sprites.invisible);
     }

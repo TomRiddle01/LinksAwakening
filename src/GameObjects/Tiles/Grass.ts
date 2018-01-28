@@ -1,6 +1,6 @@
 import {Sprites} from "../../Sprites/Sprites";
-import {DamageHitBox} from "../Misc/DamageHitBox";
 import {GameObject} from "../GameObjects";
+import {DamageHitBox} from "../Misc/DamageHitBox";
 import {StaticTile} from "./StaticTile";
 
 export class Grass extends StaticTile {
@@ -15,7 +15,7 @@ export class Grass extends StaticTile {
         if (!this.destroyed && object instanceof DamageHitBox) {
             this.setSprite(Sprites.leaves);
             this.die(this.sprite.getDuration());
-            this.playerCollision = false;
+            this.npcCollision = false;
             this.destroyed = true;
         }
     }
