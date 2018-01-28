@@ -83,7 +83,7 @@ export class Game {
 
                 const minX = Math.min(Math.abs(distX1), Math.abs(distX2));
                 const minY = Math.min(Math.abs(distY1), Math.abs(distY2));
-                if (minX < minY) {
+                if (minX <= minY) {
                     player.posX += Math.abs(distX1) < Math.abs(distX2) ? distX1 : distX2;
                 } else {
                     player.posY += Math.abs(distY1) < Math.abs(distY2) ? distY1 : distY2;
