@@ -1,10 +1,10 @@
-import {GameState} from "../GameState";
-import {Sprites} from "../Sprites/Sprites";
+import {GameState} from "../../GameState";
+import {Sprites} from "../../Sprites/Sprites";
 import {AttackAnimation} from "./AttackAnimation";
-import {DamageHitBox} from "./DamageHitBox";
-import {Direction} from "./Direction";
-import {EditorTile} from "./EditorTile";
-import {GameObject} from "./GameObjects";
+import {DamageHitBox} from "../Misc/DamageHitBox";
+import {Direction} from "../Misc/Direction";
+import {EditorTile} from "../Tiles/EditorTile";
+import {GameObject} from "../GameObjects";
 
 export class Player extends GameObject {
     public buttonUp = false;

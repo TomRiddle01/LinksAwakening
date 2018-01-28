@@ -1,7 +1,7 @@
 import {GameState} from "../GameState";
 import {Sprite} from "../Sprites/Sprite";
 import {Sprites} from "../Sprites/Sprites";
-import {DamageHitBox} from "./DamageHitBox";
+import {DamageHitBox} from "./Misc/DamageHitBox";
 
 export class GameObject {
     public posX: number = 3;

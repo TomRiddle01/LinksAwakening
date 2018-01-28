@@ -1,4 +1,4 @@
-import {GameObject} from "./GameObjects";
+import {GameObject} from "../GameObjects";
 
 export class Enemy extends GameObject {
 

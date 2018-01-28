@@ -1,6 +1,6 @@
-import {Sprites} from "../Sprites/Sprites";
-import {DamageHitBox} from "./DamageHitBox";
-import {GameObject} from "./GameObjects";
+import {Sprites} from "../../Sprites/Sprites";
+import {DamageHitBox} from "../Misc/DamageHitBox";
+import {GameObject} from "../GameObjects";
 import {StaticTile} from "./StaticTile";
 
 export class Grass extends StaticTile {

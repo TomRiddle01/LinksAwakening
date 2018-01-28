@@ -1,7 +1,7 @@
-import {Map} from "../Maps/Map";
-import {Enemy} from "./Enemy";
-import {GameObject} from "./GameObjects";
-import {Tile} from "./Tile";
+import {Map} from "./Map";
+import {Enemy} from "../GameObjects/Enemies/Enemy";
+import {GameObject} from "../GameObjects/GameObjects";
+import {Tile} from "../GameObjects/Tiles/Tile";
 
 export class MapInstance  {
 

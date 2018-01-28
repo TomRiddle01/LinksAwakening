@@ -1,6 +1,6 @@
-import {Sprite} from "../Sprites/Sprite";
-import {Sprites} from "../Sprites/Sprites";
-import {Direction} from "./Direction";
+import {Sprite} from "../../Sprites/Sprite";
+import {Sprites} from "../../Sprites/Sprites";
+import {Direction} from "../Misc/Direction";
 import {Player} from "./Player";
 
 export class AttackAnimation {

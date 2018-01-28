@@ -1,4 +1,4 @@
-import {Tile} from "../GameObjects/Tile";
+import {Tile} from "../GameObjects/Tiles/Tile";
 
 export class Map {
 

@@ -1,6 +1,6 @@
-import {Enemy} from "./GameObjects/Enemy";
-import {MapInstance} from "./GameObjects/MapInstance";
-import {Player} from "./GameObjects/Player";
+import {Enemy} from "./GameObjects/Enemies/Enemy";
+import {MapInstance} from "./Maps/MapInstance";
+import {Player} from "./GameObjects/Player/Player";
 import {Map} from "./Maps/Map";
 
 export class GameState {
