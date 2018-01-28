@@ -9,17 +9,29 @@ export class Sprites {
 
     public static linkLeft = new Sprite(Sprites.greenLink, 3, [
         new SpriteFrame(0, 0, 15, 16),
-        new SpriteFrame(15, 0, 15, 16),
     ]);
     public static linkDown = new Sprite(Sprites.greenLink, 3, [
         new SpriteFrame(30, 0, 15, 16),
-        new SpriteFrame(45, 0, 15, 16),
     ]);
     public static linkUp = new Sprite(Sprites.greenLink, 3, [
         new SpriteFrame(59, 0, 15, 16),
-        new SpriteFrame(74, 0, 15, 16),
     ]);
     public static linkRight = new Sprite(Sprites.greenLink, 3, [
+        new SpriteFrame(103, 0, 15, 16),
+    ]);
+    public static linkWalkingLeft = new Sprite(Sprites.greenLink, 3, [
+        new SpriteFrame(15, 0, 15, 16),
+        new SpriteFrame(0, 0, 15, 16),
+    ]);
+    public static linkWalkingDown = new Sprite(Sprites.greenLink, 3, [
+        new SpriteFrame(45, 0, 15, 16),
+        new SpriteFrame(30, 0, 15, 16),
+    ]);
+    public static linkWalkingUp = new Sprite(Sprites.greenLink, 3, [
+        new SpriteFrame(74, 0, 15, 16),
+        new SpriteFrame(59, 0, 15, 16),
+    ]);
+    public static linkWalkingRight = new Sprite(Sprites.greenLink, 3, [
         new SpriteFrame(88, 0, 15, 16),
         new SpriteFrame(103, 0, 15, 16),
     ]);

@@ -17,30 +17,36 @@ export class Player extends GameObject {
     public buttonP: boolean;
     public buttonO: boolean;
     public attacking: AttackAnimation;
+    public walking: boolean;
 
     public tick(delta: number, gameState: GameState) {
         this.moving = false;
 
+        this.walking = false;
         if (!this.attacking) {
             if (this.buttonUp) {
                 this.posY -= this.speed * delta;
                 this.direction = Direction.UP;
                 this.moving = true;
+                this.walking = true;
             }
             if (this.buttonDown) {
                 this.posY += this.speed * delta;
                 this.direction = Direction.DOWN;
                 this.moving = true;
+                this.walking = true;
             }
             if (this.buttonRight) {
                 this.posX += this.speed * delta;
                 this.direction = Direction.RIGHT;
                 this.moving = true;
+                this.walking = true;
             }
             if (this.buttonLeft) {
                 this.posX -= this.speed * delta;
                 this.direction = Direction.LEFT;
                 this.moving = true;
+                this.walking = true;
             }
         }
 
@@ -90,6 +96,21 @@ export class Player extends GameObject {
                         break;
                     case Direction.DOWN:
                         this.setSprite(Sprites.linkPushingDown);
+                        break;
+                }
+            } else if(this.walking){
+                switch (this.direction) {
+                    case Direction.LEFT:
+                        this.setSprite(Sprites.linkWalkingLeft);
+                        break;
+                    case Direction.RIGHT:
+                        this.setSprite(Sprites.linkWalkingRight);
+                        break;
+                    case Direction.UP:
+                        this.setSprite(Sprites.linkWalkingUp);
+                        break;
+                    case Direction.DOWN:
+                        this.setSprite(Sprites.linkWalkingDown);
                         break;
                 }
             } else {
