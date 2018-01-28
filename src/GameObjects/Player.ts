@@ -26,27 +26,27 @@ export class Player extends GameObject {
         if (!this.attacking) {
             if (this.buttonUp) {
                 this.posY -= this.speed * delta;
-                this.direction = Direction.UP;
                 this.moving = true;
                 this.walking = true;
+                if (!this.pushing) { this.direction = Direction.UP; }
             }
             if (this.buttonDown) {
                 this.posY += this.speed * delta;
-                this.direction = Direction.DOWN;
                 this.moving = true;
                 this.walking = true;
+                if (!this.pushing) { this.direction = Direction.DOWN; }
             }
             if (this.buttonRight) {
                 this.posX += this.speed * delta;
-                this.direction = Direction.RIGHT;
                 this.moving = true;
                 this.walking = true;
+                if (!this.pushing) { this.direction = Direction.RIGHT; }
             }
             if (this.buttonLeft) {
                 this.posX -= this.speed * delta;
-                this.direction = Direction.LEFT;
                 this.moving = true;
                 this.walking = true;
+                if (!this.pushing) { this.direction = Direction.LEFT; }
             }
         }
 
@@ -99,7 +99,7 @@ export class Player extends GameObject {
                         this.setSprite(Sprites.linkPushingDown);
                         break;
                 }
-            } else if(this.walking){
+            } else if (this.walking) {
                 switch (this.direction) {
                     case Direction.LEFT:
                         this.setSprite(Sprites.linkWalkingLeft);
