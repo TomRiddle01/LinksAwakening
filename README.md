@@ -8,3 +8,8 @@ The spritesheets were mostly provided by the following People:
 - [Bruce Juice](https://www.spriters-resource.com/game_boy_gbc/thelegendofzeldalinksawakeningdx/sheet/9436/)
 - [Drshnaps](https://www.spriters-resource.com/game_boy_gbc/thelegendofzeldalinksawakeningdx/sheet/9445/)
 - [zeldaelements.com](http://www.zeldaelements.net/games/c/links_awakening/maps)
+
+## Todo list
+
+- [ ] Link should should look in the direction he looked at before walking diagonally
+    - currently he either watches left or right
