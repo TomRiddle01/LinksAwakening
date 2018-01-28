@@ -11,5 +11,18 @@ The spritesheets were mostly provided by the following People:
 
 ## Todo list
 
+### Features
+
+- [ ] File format for maps
+- [ ] Simple ingame Editor Mode that Edits and generates Map-files
+    - [ ] Add more blocks to it
+- [ ] Enemies start with a simple version of a Cucco (Chicken)
+- [ ] Map System
+    - [ ] Switchable Maps
+    - [ ] Animation for the transition
+
+
+### Bugs
+
 - [ ] Link should should look in the direction he looked at before walking diagonally
     - currently he either watches left or right
