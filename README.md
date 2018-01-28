@@ -16,7 +16,7 @@ The spritesheets were mostly provided by the following People:
 - [ ] File format for maps
 - [ ] Simple ingame Editor Mode that Edits and generates Map-files
     - [ ] Add more blocks to it
-- [ ] Enemies start with a simple version of a Cucco (Chicken)
+- [x] Enemies start with a simple version of a Cucco (Chicken)
 - [ ] Map System
     - [ ] Switchable Maps
     - [ ] Animation for the transition
@@ -24,5 +24,10 @@ The spritesheets were mostly provided by the following People:
 
 ### Bugs
 
+### Zelda Realism
+
+- [ ] Cuccos currently dont jump but walk around instead.
+    - [ ] Add the little jumping animation.
+    - [ ] And the shadow.
 - [ ] Link should should look in the direction he looked at before walking diagonally
     - currently he either watches left or right
