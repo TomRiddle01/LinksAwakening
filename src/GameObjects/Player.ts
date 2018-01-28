@@ -71,6 +71,7 @@ export class Player extends GameObject {
             this.attacking.restart();
 
             box.die(this.attacking.sprite.getDuration());
+            console.log(box.tileX(), box.tileY());
             gameState.map.dynamicObjects.push(box);
 
         }
